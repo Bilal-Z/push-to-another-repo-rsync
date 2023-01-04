@@ -70,7 +70,7 @@ COMMIT_MESSAGE="${COMMIT_MESSAGE/\$GITHUB_REF/$GITHUB_REF}"
 
 git config --global --add safe.directory "$CLONE_DIR"
 
-echo ":: Adding git commit"
+echo ":: Add git commit"
 git add .
 
 echo ":: git status"
