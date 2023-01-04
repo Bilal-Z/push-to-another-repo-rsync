@@ -55,7 +55,7 @@ ls -la "$CLONE_DIR"
 # https://unix.stackexchange.com/questions/88788/merge-folders-and-replace-files-using-cli
 echo "::Copy and merge"
 {
-	rsync -avhu --progress "$SRC_DIR" "$CLONE_DIR/$DEST_DIR"
+	rsync -avhu --progress "$SRC_DIR"/ ~"$CLONE_DIR"/"$DEST_DIR"
 } || {
 	echo ":: ERR: Could not merge target and dest folders. Command:"
 	echo ":: ERR: rsync -avhu --progress $SRC_DIR $CLONE_DIR/$DEST_DIR"
