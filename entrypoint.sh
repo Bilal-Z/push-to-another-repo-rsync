@@ -58,7 +58,7 @@ echo "::Copy and merge"
 	rsync -avhu --progress "$GITHUB_WORKSPACE/$SRC_DIR/" ~"$CLONE_DIR/$DEST_DIR"
 } || {
 	echo ":: ERR: Could not merge target and dest folders. Command:"
-	echo ":: ERR: rsync -avhu --progress $SRC_DIR $CLONE_DIR/$DEST_DIR"
+	echo ":: ERR: rsync -avhu --progress $GITHUB_WORKSPACE/$SRC_DIR/ ~$CLONE_DIR/$DEST_DIR"
 	exit 1
 }
 
