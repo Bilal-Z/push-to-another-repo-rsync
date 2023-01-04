@@ -1,0 +1,38 @@
+name: Push to another repo using rsync
+description: Push files to another repo using rsync to copy and merge
+inputs:
+  srcdir:
+    description: directory in source rpo to be copied to dest repo
+    required: true
+  destdir:
+    description: directory in destination repo to be copied to
+    required: true
+  dest-gh-username:
+    description: user/org name of repo
+    required: true
+  dest-repo-name:
+    description: name of destination repo
+    required: true
+  user-email:
+    description: email for git commit
+    required: true
+  target-branch:
+    description: name of target branch. default is master.
+    default: master
+    required: false
+  commit-msg:
+    description: commit message for the output repository. ORIGIN_COMMIT is replaced by the URL@commit in the origin repo.
+    default: Update from ORIGIN_COMMIT
+    required: false
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - '${{inputs.srcdir}}'
+    - '${{inputs.destdir}}'
+    - '${{inputs.dest-gh-username}}'
+    - '${{inputs.dest-repo-name}}'
+    - '${{inputs.user-email}}'
+    - '${{inputs.target-branch}}'
+    - '${{inputs.commit-msg}}'
