@@ -36,7 +36,7 @@ fi
 
 CLONE_DIR=$(mktemp -d)
 
-echo ":: Clone dest repo $DESTINATION_REPOSITORY_NAME"
+echo ":: Clone dest repo $DEST_REPO_NAME"
 # Setup git
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$DEST_GH_USERNAME"
