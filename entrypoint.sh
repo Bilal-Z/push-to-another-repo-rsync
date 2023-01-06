@@ -53,8 +53,6 @@ ls -la "$CLONE_DIR"
 
 
 # https://devcoops.com/install-rsync-on-alpine-linux/
-sudo apk update
-sudo apk add rsync
 rsync --version
 
 # https://unix.stackexchange.com/questions/149965/how-to-copy-merge-two-directories
