@@ -51,9 +51,15 @@ git config --global user.name "$DEST_GH_USERNAME"
 }
 ls -la "$CLONE_DIR"
 
+
+# https://devcoops.com/install-rsync-on-alpine-linux/
+sudo apk update
+sudo apk add rsync
+rsync --version
+
 # https://unix.stackexchange.com/questions/149965/how-to-copy-merge-two-directories
 # https://unix.stackexchange.com/questions/88788/merge-folders-and-replace-files-using-cli
-echo "::Copy and merge"
+echo ":: Copy and merge"
 {
 	rsync -avhu --progress "$GITHUB_WORKSPACE/$SRC_DIR/" ~"$CLONE_DIR/$DEST_DIR"
 } || {

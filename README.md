@@ -1,4 +1,4 @@
-# Push to another repo sync
+# Push to another repo rsync
 
 based on [github-action-push-to-another-repository](https://github.com/cpina/github-action-push-to-another-repository)
 
