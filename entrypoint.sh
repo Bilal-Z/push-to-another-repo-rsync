@@ -69,8 +69,8 @@ echo ":: Copy and merge"
 cd "$CLONE_DIR"
 
 ORIGIN_COMMIT="https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
-COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
-COMMIT_MESSAGE="${COMMIT_MESSAGE/\$GITHUB_REF/$GITHUB_REF}"
+COMMIT_MSG="${COMMIT_MSG/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
+COMMIT_MSG="${COMMIT_MSG/\$GITHUB_REF/$GITHUB_REF}"
 
 git config --global --add safe.directory "$CLONE_DIR"
 
@@ -82,7 +82,7 @@ git status
 
 echo ":: git diff-index"
 # git diff-index : to avoid doing the git commit failing if there are no changes to be commit
-git diff-index --quiet HEAD || git commit --message "$COMMIT_MESSAGE"
+git diff-index --quiet HEAD || git commit --message "$COMMIT_MSG"
 
 echo ":: Pushing git commit"
 # --set-upstream: sets de branch when pushing to a branch that does not exist
